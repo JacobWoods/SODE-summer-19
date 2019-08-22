@@ -54,7 +54,7 @@ With delta being the magnitude of the random varible and k being the coefficent 
   ![equation](https://latex.codecogs.com/gif.latex?%5Cfrac%7Bk%7D%7BN%7D%5Csum_%7Bi%5Csim%20j%7DG%28u_i-u_j%29sin%28u_i-u_j&plus;%5Calpha%20%29)
 
 
-Here we have A representing the coupling strength between i and j in the ith, jth entry of A,  U represents the current state of the system, k like in the equation represents the coupleing strength and a is the so called phase lag represented by alpha in the equation.
+Here we have A representing the function G between i and j in the ith, jth entry of A,  U represents the current state of the system, k like in the equation represents the coupleing strength and a is the so called phase lag represented by alpha in the equation.
 
  ## Kuramoto_4s.m
  
@@ -78,3 +78,13 @@ Here we have A representing the coupling strength between i and j in the ith, jt
   Stochastic.m is a function that takes a vector u as an inpout and outputs a vector of i.i.d random varibles for each element of the vector inside a vector each of them are N(0,1).  stochasticint.m is dependent on stochastic.m and takes a timestep dt and a vector U as an input and will integrate an equation like
   
 ## chimerawithstoch.m 
+  This script will greate a chimera state and is dependent on both Kuramoto_4s.m and stocasticint.m.  to set the initial conditions we can decided on the phase lag a,the number of verticies in our graph N,  the number of timesteps we wish n, the time we wish to elapse T, the weight on the coupleing k and the magnituded of our stocastic term epsilon.  from these intial conditions we generate a matrix which represents the kernel function G in the kuramoto model and then we create a pseudo random vector of initial conditions.  From these we use a function defined in the script chimerastoch(G,n,T,k,a,u_0,epsilon) which will find dt and plot the function as well as save in as a png and a gif with a frame ever 500 iterates.  then this function will output a matrix with all the values of the N vertices for each of the n timesteps.
+  
+  
+## Kwithlocal.m   
+
+This script works exactly as above but the kuramoto model is programed in and is slightly different includeing a 2nd derivative term in it.
+
+## detection_method.m
+
+This has no direct dependencies but requires the data saved when one runs the chimerawithstoch.m script useing the C matrix it outputs this script attempts to plot the boundries between the synchronized and the chaotic regions of the chimera with.  we attempt to detect them by seeing which verteices have values almost identical to there neigboors by takeing the differnce between the nth and nth+1 vertices value and then averageing a feww of it's neighboors together then if it is belowe a certain threshhold dependent on epsilon from chimerawithstoch.mthen we say that it is sychronized.  from here we look for the logest stretch of syncronized points in that timeframe and the two ends of these are saved as the boundries this is done for all time steps and then a plot is made of the boundries.
