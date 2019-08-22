@@ -19,14 +19,21 @@ General code repository
 
   This is a code with no dependencies and it defines a function named timestep which outputs how many iterates it takes for a graph of 
   coupled oscilators to reach one well of a double well potential when the oscilators values are dictated by 
+  
+  
   ![equation](https://latex.codecogs.com/gif.latex?%5Cdot%20u_i%3D-%284u_i%5E3-2u_i%29&plus;k%5Csum_%7Bj%5Csim%20i%7D%28u_j-u_i%29&plus;%5Cdelta%20N%280%2C1%29)
+  
+  
   The function Timestep(D,delta,dt,k) is defined with D being the adjacency matrix of the desired graph delta being the same delta in the equation above defining the magnitude of the random varible well k is the strength of the coupleing between neighbooring nodes and dt is the step size.  This code will continue to run untill all nodes are in one of the wells either positive or negative well and then will output a integer c which is the number of steps it took to reach equilibrium.
   
 ## Triangle_Graph.m
 
   Triangle_Graph is a script which is dependent on the Triangle function and will take some inputed initial conditions and plot the graph of the system of coupled oscilators with the nodes being colored representing which equilibrium they are in with red dots being in the positive equlibrium and blue dots in the negative one.  this code will run untill it goes through the number of of iterates specified n with a time step dt.  it uses the same equation as in the above code
+  
+  
 ![equation](https://latex.codecogs.com/gif.latex?%5Cdot%20u_i%3D-%284u_i%5E3-2u_i%29&plus;k%5Csum_%7Bj%5Csim%20i%7D%28u_j-u_i%29&plus;%5Cdelta%20N%280%2C1%29)
-                                                      
+                                              
+                                              
 With delta being the magnitude of the random varible and k being the coefficent on the oscilator and m is the number of iterates between when we plot our graph.  lastly the varible N is the inpuit for our triangle function defined in Triangle.m and is the oreder of our sierpinski triangle.
 
 ## Triangle_Plot.m
@@ -42,7 +49,10 @@ With delta being the magnitude of the random varible and k being the coefficent 
  
   This is a very simple function with no dependencies which calculates the right hand side of the Kuramoto model from 
   Kuramoto(A,U,k,a) outputs a vector v equalle to 
+  
+  
   ![equation](https://latex.codecogs.com/gif.latex?%5Cfrac%7Bk%7D%7BN%7D%5Csum_%7Bi%5Csim%20j%7DG%28u_i-u_j%29sin%28u_i-u_j&plus;%5Calpha%20%29)
+
 
 Here we have A representing the coupling strength between i and j in the ith, jth entry of A,  U represents the current state of the system, k like in the equation represents the coupleing strength and a is the so called phase lag represented by alpha in the equation.
 
@@ -57,8 +67,14 @@ Here we have A representing the coupling strength between i and j in the ith, jt
  
  # Chimera state
  
- ## Kuramoto.m and Kuramoto_4s
-  these codes work identivcly as in the last model but instead the function that we are modeling is negative so it resembles 
+ ## Kuramoto.m and Kuramoto_4s.m
+  these codes work identivcly as in the last model but instead the function that we are modeling is negative so it resembles
+  
+  
   ![equation](https://latex.codecogs.com/gif.latex?-%5Cfrac%7Bk%7D%7BN%7D%5Csum_%7Bi%5Csim%20j%7DG%28u_i-u_j%29sin%28u_i-u_j&plus;%5Calpha%20%29)
   
   
+## Stochastic.m and Stochasticint.m
+  Stochastic.m is a function that takes a vector u as an inpout and outputs a vector of i.i.d random varibles for each element of the vector inside a vector each of them are N(0,1).  stochasticint.m is dependent on stochastic.m and takes a timestep dt and a vector U as an input and will integrate an equation like
+  
+## chimerawithstoch.m 
