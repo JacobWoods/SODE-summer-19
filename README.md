@@ -15,4 +15,5 @@ General code repository
 ## Timestep.m
 
   This is a code with no dependencies and it defines a function named timestep which outputs how many iterates it takes for a graph of 
-  coupled oscilators to reach one well of a double well potential when the oscilators values are dictated by https://latex.codecogs.com/gif.latex?%5Cdot%20u_i%3D-%284u_i%5E3-2u_i%29&plus;k%5Csum_%7Bj%5Csim%20i%7D%28u_j-u_i%29&plus;%5Cdelta%20N%280%2C1%29
+  coupled oscilators to reach one well of a double well potential when the oscilators values are dictated by 
+  ![equation](https://latex.codecogs.com/gif.latex?%5Cdot%20u_i%3D-%284u_i%5E3-2u_i%29&plus;k%5Csum_%7Bj%5Csim%20i%7D%28u_j-u_i%29&plus;%5Cdelta%20N%280%2C1%29)
