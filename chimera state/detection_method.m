@@ -1,5 +1,18 @@
-hold off
+
+
+%the dimensions of our problem how many vertices in our graph
+N=256;
+%the number of steps in our time interval
+n=800;
+%The data from the chimera state
+C=C
+
+%initializing a matrix to check the distance on the y axis between two
+%vertices 
 F=zeros(n,N);
+
+%this code checks the distance between two verticies of our graph with a
+%periodic distance metric
 for i=1: n
     for j=1:N
         if j<N
@@ -15,6 +28,9 @@ for i=1: n
         end
     end
 end
+
+%recorded the average distance between verticieces for nodes within 10
+%of either side of our node
 AF=zeros(n,N);
 for i=1: n
     for j=1:N
@@ -28,6 +44,8 @@ for i=1: n
     end
 end
 
+
+%this is a 1 if our estimated x derivative is belowe a certain threshold
 RUNS=zeros(n,N);
 for i=1: n
     for j=1:N
@@ -38,7 +56,8 @@ for i=1: n
 end
 
 
-
+%this will count how many verticies in a row are belowe a certain threshold
+%and record it in the entries of a matrix
 formated=zeros(n,N);
 for q=1:n
 i=1;
@@ -72,6 +91,8 @@ while i<=256
 end
 end
 
+
+%this finds the boundries of that region
 boundries=zeros(n,2);
 for i=1:n
     j=1;
@@ -107,3 +128,5 @@ end
 scatter(1:n,boundries(:,1:1))
 hold on
 scatter(1:n,boundries(:,2:2))
+
+hold off
