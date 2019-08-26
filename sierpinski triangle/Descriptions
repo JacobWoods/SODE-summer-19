@@ -1,0 +1,7 @@
+#Triangle.m
+  This code does not have any dependencies other then native matlab functions this code describes a function named triangle(m) 
+  which takes the input of an integer greater then or equalle to 0 and outputs a adjacency matrix of the mth order sierpinski triangle 
+  with triangle(0) outputing the adjacency matrix of the complete graph of order 3.  
+    This code has room to be optimized and has a rather complicated algorithm to define the adjacency matrix.
+    
+#
