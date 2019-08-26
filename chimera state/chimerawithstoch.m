@@ -30,40 +30,13 @@ end
 D=D/N;
 
 
-% v=1:floor(N);
-% D=zeros(N);
-% for i=1:N
-%     
-%     for j=1:N
-%         
-%         if i>j
-%             D(j,i)=v(i-j);
-%         end
-%         D(i,j)=256-D(j,i);
-%         if i==j
-%            D(i,j)=0;
-%         end
-%     end
-% end
-% D=D/N;
 
 
 %using D to create the kernel
 G=zeros(N);
 K=4;
 G=K/(2*(1-exp(-K/2)))*(exp(-K*D));
-%G=1/(2*pi)*(1+.995*cos(D));
-% % R=1/50
-% % for i=1:N
-% %     
-% %     for j=1:N
-% %         
-% %         if D(j,i)<R
-% %             G(j,i)=1/(2*R);
-% %         end
-% %         
-% %     end
-% % end
+
 
 
 
