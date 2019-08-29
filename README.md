@@ -36,10 +36,9 @@ General code repository
                                               
 With delta being the magnitude of the random varible and k being the coefficent on the oscilator and m is the number of iterates between when we plot our graph.  lastly the varible N is the inpuit for our triangle function defined in Triangle.m and is the oreder of our sierpinski triangle.
 
-## Triangle_Plot.m
+## TimePlot.m
 
-  This code is identical to Triangle_graph.m but instead it will plot a scatterplot of the verticies rather then the 
-  graph with colored nodes so it shows a more descriptive plot of the values of the verticiesbut has less of a geometric meaning.
+  This code is identical will plot a graph that has each vertices state over time and will save all the data into a matrix C it uses k as the coupleing strength delta as the magnitude of the noise n as the number of steps and dt as the step size and there are a couple options for the Initial conditions.
   
   
  # Galton_Watson_Tree
