@@ -2,8 +2,8 @@ D=triangle(5);
 m=length(D);
 u_0=(rand(m,1));
 o=zeros(m,1);
-k=1
-delta=0.5
+k=.03
+delta=0.05
 
 
 
@@ -14,7 +14,7 @@ u_last=u_0;
 M=0
 for i=1:n
     
-   u_now=u_last+dt*RHS(u_last,D,k,delta)  
+   u_now=u_last+dt*RHS(u_last,D,k) +delta*randn(m,1)*dt^.5 
     
   
     colors=zeros(m,1)
@@ -51,14 +51,14 @@ end
 
 
 
-function v=RHS(u,D,k,delta)
+function v=RHS(u,D,k)
 
 
 N=length(u);
 
 v=zeros(N,1);
 for i=1:N
-v(i)=-(u(i)^3 - u(i))+delta*normrnd(0,1)+k*sum(D(i:i,:)*(u-u(i)));
+v(i)=-(u(i)^3 - u(i))+k*sum(D(i:i,:)*(u-u(i)));
 
 end
 
